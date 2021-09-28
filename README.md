@@ -1,1 +1,1 @@
-# fishbowlmeter
+# This is practice of Django.
