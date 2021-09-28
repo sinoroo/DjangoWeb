@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'common.apps.CommonConfig',
     'rest_framework',
     'api.apps.ApiConfig',
     'pybo.apps.PyboConfig',
@@ -125,3 +126,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+#로그인 성공 후 이동하는 URL
+LOGIN_REDIRECT_URL = '/'
+
+#로그 아웃 후 이동하는 URL
+LOGOUT_REDIRECT_URL = '/'
