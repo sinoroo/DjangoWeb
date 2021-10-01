@@ -1,8 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container my-3">
+    <div class="row">
+        <div class="col-4">
+            <h4>로그인</h4>
+        </div>
+        <div class="col-8 text-right">
+            또는 <a href="{% url 'common:signup' %}">계정을 만드세요.</a>
+        </div>
+    </div>
     <form method="post" class="post-form" action="{% url 'common:login' %}">
         {% csrf_token %}
+        <!-- 로그아웃 상태에서 질문 등록하기를 하면 로그인 창으로 이동한다.
+             로그인 창에서 로그인 후 질문 등록하기로 바로 이동해야 하는데
+             아래의 input type이 없으면 다시 원래 URL로 이동한다.
+        -->
+        <input type="hidden" name="next" value="{{ next }}">
         {% include "form_errors.html" %}
         <div class="form-group">
             <label for="username">사용자ID</label>
