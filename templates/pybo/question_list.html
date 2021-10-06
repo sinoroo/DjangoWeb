@@ -22,7 +22,11 @@
             <td>{{ forloop.counter }}</td>
             -->
             <td class="text-left">
+                {% if question.subject %}
                 <a href="{% url 'pybo:detail' question.id %}">{{ question.subject }}</a>
+                {% else %}
+                <a href="{% url 'pybo:detail' question.id %}">null</a>
+                {% endif %}
                 {% if question.answer_set.count > 0 %}
                 <span class="text-danger small ml-2">{{question.answer_set.count}}</span>
                 {% endif %}
