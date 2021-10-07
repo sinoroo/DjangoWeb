@@ -1,5 +1,5 @@
 from django import forms
-from pybo.models import Question, Answer
+from pybo.models import Question, Answer, Comment
 
 class QuestionForm(forms.ModelForm):
     class Meta:
@@ -15,7 +15,15 @@ class QuestionForm(forms.ModelForm):
 class AnswerForm(forms.ModelForm):
     class Meta:
         model = Answer #사용할 모델
-        fields = [ 'content'] #QuestionForm에서 사용할 Question 모델이 속성
+        fields = ['content'] #QuestionForm에서 사용할 Question 모델이 속성
         labels = {
             'content': '답변내용',
+        }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment #사용할 모델
+        fields = ['content']
+        labels = {
+            'content':'댓글내용',
         }
